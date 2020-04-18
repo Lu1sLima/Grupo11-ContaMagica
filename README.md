@@ -2,5 +2,5 @@
 
 
 
-mvn clean install para instalar as dependencias
+mvn clean install para instalar as dependencias\n
 mvn exec:java para rodar o App main
