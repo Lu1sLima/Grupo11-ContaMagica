@@ -1,6 +1,9 @@
 # Grupo11-ContaMagica
 
+## HOW TO RUN:
 
+- mvn compile
 
-mvn clean install para instalar as dependencias\n
-mvn exec:java para rodar o App main
+- mvn exec:java - executa o main
+
+- mvn test
