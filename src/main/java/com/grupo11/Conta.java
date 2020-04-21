@@ -64,12 +64,55 @@ public class Conta {
         }
     }
 
+    public void retirada(double valor) throws InvalidValueException{
+        /*
+        * Vamos retirar um valor no saldo
+        * Checkar se com o valor que quero retirar do saldo é possível eu fazer downgrade de status
+        * Tratamento para depósitos negativos
+        */
+        
+        if(valor <= 0 || valor > this.getSaldo()){
+            throw new InvalidValueException("Valor inválido");
+        }
+        else{
+            switch(this.categoria){
+                case GOLD:
+                    if(saldo < 25000){
+                        this.categoria = Categoria.SILVER;
+                    }
+                    setSaldo(saldo-valor);
+                    break;
+                case PLATINUM:
+                    if(saldo < 100000){
+                        this.categoria = Categoria.GOLD;
+                    }
+                    setSaldo(saldo-valor);
+                    break;
+                default:
+                    setSaldo(saldo-valor);
+            }
+        }
+    }
+
     public void setSaldo(double saldo){
         this.saldo = saldo;
     }   
     
+    public double getSaldo(){
+        return saldo;
+    }
+
+    public Categoria getStatus(){
+        return this.categoria;
+    }
+
     public double getSaldoBonus(double valor, double porcentagem){
         return (saldo + valor + (valor * porcentagem));
+    }
+
+    @Override
+    public String toString() {
+        return "Conta [Categoria=" + categoria + ", Nome=" + nome + ", Saldo=" + saldo + "]";
     }
 
 }
