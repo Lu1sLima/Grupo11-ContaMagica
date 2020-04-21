@@ -166,5 +166,41 @@ public class ContaTest {
         this.cGold.retirada(1); 
         Assertions.assertEquals(Categoria.SILVER, this.cGold.getStatus());
 
+
+
+    }
+
+    @Test 
+    public void testeSaquePlatinum() throws InvalidValueException{
+        /**
+         * platinum 1 real, saque(1) --> gold
+         * platinum 199K, saquei(1) --> gold
+         * platinum 2 reais, saque(1) --> gold / gold 1 real, saque(1) --> silver
+         * platinum 200K, saquei(200k) --> platinum 
+         * platinum 100K, saquei(100k) --> platinum 
+         */ 
+
+        this.cPlatinum.setSaldo(1);
+        this.cPlatinum.retirada(1);
+        Assertions.assertEquals(Categoria.GOLD, this.cPlatinum.getStatus());
+
+        this.cPlatinum = new Conta(Categoria.PLATINUM, 199999, "Luis Lima");
+        this.cPlatinum.retirada(1);
+        Assertions.assertEquals(Categoria.PLATINUM, this.cPlatinum.getStatus());
+
+        this.cPlatinum = new Conta(Categoria.PLATINUM, 200000, "Adilson Medronha");
+        this.cPlatinum.retirada(200000);
+        Assertions.assertEquals(Categoria.PLATINUM, this.cPlatinum.getStatus());
+
+        this.cPlatinum = new Conta(Categoria.PLATINUM, 99999, "Adilson Medronha");
+        this.cPlatinum.retirada(1);
+        Assertions.assertEquals(Categoria.GOLD, this.cPlatinum.getStatus());
+
+    }
+
+    @Test
+    public void testeToString(){
+        String result = "Conta [Categoria=GOLD, Nome=Luis Lima, Saldo=0.0]";
+        Assertions.assertEquals(result, cGold.toString());
     }
 }
