@@ -9,7 +9,7 @@
 - mvn test
 
 
-# Técnica utilizada: Test Driven Developmen
+# Técnica utilizada: [Test Driven Development]
 # Casos de Teste:
 - Teste de depósito negativo;
 - Teste de depósito em conta Silver;
