@@ -11,8 +11,8 @@
 
 # Técnica utilizada: Test Driven Developmen
 # Casos de Teste:
-[x] Teste de depósito negativo;
-[x] Teste de depósito em conta Silver;
+- Teste de depósito negativo;
+- Teste de depósito em conta Silver;
 - Teste de depósito em conta Gold:
     - Conta com 0 de saldo, deposita 24.000 -> Muda para Silver
     - Conta com 0 de saldo, deposita 100.000 -> Continua Gold
