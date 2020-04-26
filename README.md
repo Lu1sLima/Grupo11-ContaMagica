@@ -34,3 +34,6 @@
     - Conta platinum com saldo de 199.999, saque(1) -> Continua Platinum
     - Conta platinum com saldo de 200.000, saque(200.000) -> Continua Platinum (muda só na próxima)
     - Conta platinum com saldo de 99.999, saque(1) -> Muda para Gold (já tinha valor inferior ao permidido para ser Platinum)
+    
+  # Coverage:
+  ![](https://i.imgur.com/6kzxS43.png)
